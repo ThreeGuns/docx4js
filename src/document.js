@@ -19,6 +19,8 @@ export default class Document{
 	}
 	getImagePart(name){
 		var part=this.parts[name]
+		//cl 180321
+		if(!part) return;
 		var crc32=part._data.crc32
 		var buffer=part[JSZip.support.nodebuffer ? 'asNodeBuffer' : 'asArrayBuffer']()
 		buffer.crc32=part._data.crc32=crc32
